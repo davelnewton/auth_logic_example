@@ -90,10 +90,9 @@ pry(main)> cd User
 pry(#<Class:0x1041dcc20>):1> validates_length_of_password_field_options
 => {:minimum=>4, :if=>:require_password?}
 pry(#<Class:0x1041dcc20>):1> validates_format_of_email_field_options
-=> {:with=>/^[A-Z0-9_\.%\+\-']+@(?:[A-Z0-9\-]+\.)+(?:[A-Z]{2,4}|museum|travel)$/i,
- :message=>"should look like an email address."}
- pry(#<Class:0x1041dcc20>):1> validates_length_of_email_field_options
- => {:maximum=>100}
- ```
+=> {:with=>/^[A-Z0-9_\.%\+\-']+@(?:[A-Z0-9\-]+\.)+(?:[A-Z]{2,4}|museum|travel)$/i, :message=>"should look like an email address."}
+pry(#<Class:0x1041dcc20>):1> validates_length_of_email_field_options
+=> {:maximum=>100}
+```
 
 Note that the length validations accept the usual length validation options.
