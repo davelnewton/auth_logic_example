@@ -1,0 +1,1 @@
+rvm --create gemset use 1.9.2-p0@auth_logic_example
