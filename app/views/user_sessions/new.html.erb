@@ -1,0 +1,7 @@
+<h1>Login</h1>
+
+<%= render :partial => 'shared/errors', :locals => { :rec => @user_session } %>
+<% form_for @user_session, :url => {:action => 'create'} do |f| %>
+  <%= render :partial => "form", :object => f %>
+  <%= f.submit "Register" %>
+<% end %>

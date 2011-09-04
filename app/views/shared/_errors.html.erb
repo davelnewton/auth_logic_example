@@ -1,0 +1,11 @@
+<% if rec.errors.any? -%>
+  <div id="error_explanation">
+    <h2><%= pluralize(rec.errors.count, "error") %>!</h2>
+
+    <ul>
+    <% rec.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end -%>

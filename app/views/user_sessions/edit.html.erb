@@ -1,0 +1,9 @@
+<h1>Edit My Account</h1>
+
+<%= render :partial => 'shared/errors', :locals => { :rec => @user_session } %>
+<% form_for @user_session, :url => 'update' do |f| %>
+  <%= render :partial => "form", :object => f %>
+  <%= f.submit "Update" %>
+<% end %>
+
+<br /><%= link_to "My Profile", account_path %>
