@@ -26,11 +26,11 @@ We'll assume our user model is named ```User``` (creative!). If we already have 
 ## Required fields
 
 ```ruby
-t.string    :login,                :null => false
-t.string    :email,                :null => false
-t.string    :crypted_password,     :null => false
-t.string    :password_salt,        :null => false
-t.string    :persistence_token,    :null => false
+t.string :login,             :null => false
+t.string :email,             :null => false
+t.string :crypted_password,  :null => false
+t.string :password_salt,     :null => false
+t.string :persistence_token, :null => false
 ```
 
 There are a number of optional fields. See the [user migration file](https://github.com/davelnewton/auth_logic_example/blob/master/db/migrate/20110904214100_create_users.rb) or read the actual docs for further info.
