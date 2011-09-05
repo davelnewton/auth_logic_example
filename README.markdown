@@ -55,7 +55,7 @@ end
 
 # Bunches of stuff
 
-This code is discussed more fully at the link given at the top of this readme; here's a short list.
+This code is discussed more fully at the link given at the top of this readme; here's a short list of the stuff to make it all work.
 
 * [routes](https://raw.github.com/davelnewton/auth_logic_example/master/config/routes.rb) (login, logout, home page)
 * [application controller](https://github.com/davelnewton/auth_logic_example/blob/master/app/controllers/application_controller.rb) (helpers)
