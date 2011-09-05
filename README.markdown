@@ -65,7 +65,7 @@ More discussion of the code below lives at the link at the top of the readme; I 
 
 # Create a user
 
-We'll use ```rails console``` to create our first user.
+We'll use ```rails console``` to create our first user. (_Note_ There's also a user in the ```seeds.rb``` file.)
 
 ```ruby
 pry(main)> User.create(:login => 'login1', :password => 'login1', :email => 'foo@bar.baz').save!
