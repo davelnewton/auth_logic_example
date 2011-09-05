@@ -21,7 +21,7 @@ This creates an empty ```UserSession``` model that derives from ```Authlogic::Se
 
 # Create (or update) a user model
 
-We'll assume we're going to use user model named ```User``` (creative!). If we already have one, we can add a bunch of fields to it via a migration. Otherwise we can just create a new one. 
+We'll assume our user model is named ```User``` (creative!). If we already have one, we can add a bunch of fields to it via a migration, otherwise we'll create a new one. 
 
 ## Required fields
 
@@ -33,7 +33,7 @@ t.string    :password_salt,        :null => false
 t.string    :persistence_token,    :null => false
 ```
 
-There are also a number of optional fields. See the [user migration file](https://github.com/davelnewton/auth_logic_example/blob/master/db/migrate/20110904214100_create_users.rb) for more info (or just read the original docs! ;)
+There are a number of optional fields. See the [user migration file](https://github.com/davelnewton/auth_logic_example/blob/master/db/migrate/20110904214100_create_users.rb) or read the actual docs for further info.
 
 # Make our user model authentic
 
