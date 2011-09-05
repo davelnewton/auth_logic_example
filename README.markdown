@@ -33,29 +33,7 @@ t.string    :password_salt,        :null => false
 t.string    :persistence_token,    :null => false
 ```
 
-## Optional fields
-
-```ruby
-#t.string    :single_access_token, :null => false  # optional, see Authlogic::Session::Params
-#t.string    :perishable_token,    :null => false  # optional, see Authlogic::Session::Perishability
-
-# magic fields (all optional, see Authlogic::Session::MagicColumns)
-t.integer   :login_count,          :null => false, :default => 0
-t.integer   :failed_login_count,   :null => false, :default => 0
-t.datetime  :last_request_at
-t.datetime  :current_login_at
-t.datetime  :last_login_at
-t.string    :current_login_ip
-t.string    :last_login_ip
-```
-
-In addition, we'll create some indices.
-
-```ruby
-add_index :users, ["login"], :name => "index_users_on_login", :unique => true
-add_index :users, ["email"], :name => "index_users_on_email", :unique => true
-add_index :users, ["persistence_token"], :name => "index_users_on_persistence_token", :unique => true
-```
+There are also a number of optional fields. See the [user migration file](https://github.com/davelnewton/auth_logic_example/blob/master/db/migrate/20110904214100_create_users.rb) for more info (or just read the original docs! ;)
 
 # Make our user model authentic
 
