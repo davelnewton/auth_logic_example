@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
   protect_from_forgery
 
   helper_method :current_user_session, :current_user
@@ -21,7 +22,7 @@ class ApplicationController < ActionController::Base
       unless current_user
         store_location
         flash[:notice] = "You must be logged in to access this page"
-        redirect_to new_user_session_url
+        redirect_to login_url
         return false
       end
     end
@@ -35,6 +36,9 @@ class ApplicationController < ActionController::Base
         return false
       end
     end
+
+    alias_method :no_user_required, :require_no_user
+    alias_method :user_required, :require_user
 
     def store_location
       session[:return_to] = request.request_uri

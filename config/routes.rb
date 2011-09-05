@@ -1,9 +1,9 @@
 AuthLogicExample::Application.routes.draw do
 
-  resources :user_sessions
+  resources :user_sessions, :only => [ :new, :create ]
    
-  match 'login' => "user_sessions#new",      :as => :login
-  match 'logout' => "user_sessions#destroy", :as => :logout
+  match 'login' => "user_sessions#new"
+  match 'logout' => "user_sessions#destroy"
 
   root :to => 'home#index'
 
