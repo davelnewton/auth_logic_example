@@ -75,7 +75,17 @@ acts_as_authentic do |c|
 end
 ```
 
-## Creating our first user
+# Bunches of stuff
+
+This code is discussed more fully at the link given at the top of this readme; here's a short list.
+
+* [routes](https://raw.github.com/davelnewton/auth_logic_example/master/config/routes.rb) (login, logout, home page)
+* [application controller](https://github.com/davelnewton/auth_logic_example/blob/master/app/controllers/application_controller.rb) (helpers)
+* [session controller](https://github.com/davelnewton/auth_logic_example/blob/master/app/controllers/user_sessions_controller.rb) (login, logout)
+* [home controller](https://github.com/davelnewton/auth_logic_example/blob/master/app/controllers/home_controller.rb) (index page, ```before_filter``` to require login)
+* [session views](https://github.com/davelnewton/auth_logic_example/tree/master/app/views/user_sessions) (Login form)
+
+# Creating our first user
 
 We'll do this manually, in ```rails c``` (the console). Since we configured away the confirmation password, all we need is to provide a login ID, an email, and a password.
 
@@ -95,4 +105,4 @@ pry(#<Class:0x1041dcc20>):1> validates_length_of_email_field_options
 => {:maximum=>100}
 ```
 
-Note that the length validations accept the usual length validation options.
+The length validations accepts the usual length validation hash options.
