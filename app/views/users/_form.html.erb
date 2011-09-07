@@ -1,0 +1,32 @@
+<%= form_for(@user) do |f| %>
+  <%= render :partial => "shared/errors", :locals => { :rec => @user } %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br/>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br/>
+    <%= f.text_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nickname %><br/>
+    <%= f.text_field :nickname %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
