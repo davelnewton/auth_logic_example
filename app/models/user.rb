@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :first_name, :last_name, :email, :nickname, :password#, :crypted_password, :password_salt, :persistence_token
+  attr_accessible :first_name, :last_name, :email, :nickname, :password
 
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :email, :presence => true
+
+  # NOTE The authlogic validation already puts its errors in the right place.
   #validates :password, :presence => true
 
   acts_as_authentic do |c|
