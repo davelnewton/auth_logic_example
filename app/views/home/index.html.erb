@@ -1,5 +1,9 @@
 <h1>Home#index</h1>
 
-<p>Welcome, <%= current_user_name %>!</p>
-
-<%= link_to "Logout", logout_path %>
+<p>
+  <% if current_user %>
+    Welcome, <%= current_user_name %>!
+  <% else %>
+    Welcome! <%= link_to "You should sign up!", new_user_path %>
+  <% end %>
+</p>
