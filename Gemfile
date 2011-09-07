@@ -7,7 +7,13 @@ gem 'authlogic'
 gem 'rails3-generators'
 
 group :development, :test do
-  #gem 'webrat'
+  # Debugging/etc.
   gem 'pry'
   gem 'ruby-debug19'
+
+  # Testing/etc.
+  #gem 'webrat'
+
+  # Meta/etc.
+  gem 'annotate'
 end
