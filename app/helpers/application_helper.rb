@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def login_logout_link
-    current_user ? link_to("Log out", logout_path) : link_to("Log in", login_path)
+    is_guest? ? link_to("Sign in", login_path) : link_to("Sign out #{current_user.first_name}", logout_path)
   end
 
 end

@@ -5,6 +5,7 @@ gem 'sqlite3'
 
 gem 'authlogic'
 gem 'rails3-generators'
+gem 'cantango'#, :git => 'https://github.com/kristianmandrup/cantango.git'
 
 group :development, :test do
   # Debugging/etc.

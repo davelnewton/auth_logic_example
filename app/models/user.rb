@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :first_name, :last_name, :email, :nickname, :password
+  tango_user
+
+  attr_accessible :first_name, :last_name, :email, :nickname, :password, :user_session
 
   validates :first_name, :presence => true
   validates :last_name, :presence => true
@@ -13,6 +15,18 @@ class User < ActiveRecord::Base
     c.login_field = :email
     c.validate_login_field = false
     c.require_password_confirmation = false
+  end
+
+  def roles_list
+    (self.email.ends_with? "gmail.com") ? [:user] : []
+  end
+
+  def has_role? name
+    roles_list.contains name.to_sym
+  end
+
+  def role_groups_list
+    []
   end
 
   class << self

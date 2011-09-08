@@ -2,23 +2,27 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-  helper_method :current_user_session, :current_user
+  helper_method :current_user_session, :current_user, :is_guest?
 
-  private
+  protected
+
     def current_user_session
-      logger.debug "ApplicationController::current_user_session"
       return @current_user_session if defined?(@current_user_session)
       @current_user_session = UserSession.find
     end
 
     def current_user
-      logger.debug "ApplicationController::current_user"
       return @current_user if defined?(@current_user)
       @current_user = current_user_session && current_user_session.user
     end
 
+    def is_guest?
+      logger.debug "-=> #{@current_user} #{@current_user.class}"
+      @current_user = Guest.new if current_user.nil?
+      @current_user.class == Guest || @current_user.class == NilClass
+    end
+
     def require_user
-      logger.debug "ApplicationController::require_user"
       unless current_user
         store_location
         flash[:notice] = "You must be logged in to access this page"
@@ -28,7 +32,6 @@ class ApplicationController < ActionController::Base
     end
 
     def require_no_user
-      logger.debug "ApplicationController::require_no_user"
       if current_user
         store_location
         flash[:notice] = "You must be logged out to access this page"

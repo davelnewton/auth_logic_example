@@ -7,8 +7,13 @@
     <%= csrf_meta_tag %>
   </head>
 
-  <body>
-    <%= link_to "Home", root_path %> | <%= link_to "Users", users_path %> | <%= login_logout_link %>
+  <%
+     links = [ link_to("Home", root_path) ]
+     links << link_to("Users", users_path) if user_can?(:manage, User)
+     links << login_logout_link
+  %>
+
+  <%= links.join(' | ').html_safe %>
     <hr/>
     <%= yield %>
   </body>
