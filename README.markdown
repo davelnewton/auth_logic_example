@@ -14,10 +14,14 @@ Run ```bundle install``` as usual.
 # Create an authlogic session
 
 ```sh
-rails g authlogic:session UserSession
+rails g authlogic:session UserSession --fixture=false
 ```
 
-This creates an empty ```UserSession``` model that derives from ```Authlogic::Session::Base```.
+This creates an empty ```UserSession``` model that derives from ```Authlogic::Session::Base```. We add the
+```--fixture=false``` to prevent the creation of a ```user_sessions.yml``` fixture file. If the file is created, when tests are run, Rails will try to delete the data from a non-exstent user_sessions table, causing test failure.
+
+Authlogic user sessions *look* like ActiveRecord models, but aren't--they're not backed by a table. They're an AR-like mapping of a user's sessions.
+
 
 # Create (or update) a user model
 
